@@ -19,7 +19,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.qf</groupId>
-    <artifactId>springcloud-ali</artifactId>
+    <artifactId>springcloud-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springcloud</name>
     <description>Demo project for Spring Boot</description>
