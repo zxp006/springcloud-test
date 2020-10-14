@@ -1,0 +1,27 @@
+#server:
+#  port: 8000
+#spring:
+#  application:
+#    name: api-gateway
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: localhost:8848 # 将gateway注册到nacos
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true # 让gateway从nacos中获取服务信息
+#      routes:
+#        - id: product_route
+#          uri: lb://customer-v1
+#          order: 1
+#          predicates:
+#            - Path=/cc/**
+#          filters:
+#            - StripPrefix=1
+#        - id: product_route
+#          uri: lb://customer-v1
+#          order: 2
+#          predicates:
+#            - Path=/customer/**
+

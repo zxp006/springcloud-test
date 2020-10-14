@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    nacos:
+      config:
+        namespace: da1dc63d-4b6e-40ee-a351-18004a0f64e2
+        group: gateway-test
+        server-addr: 127.0.0.1:8848
+        prefix: {spring.application.name}  #默认就是这样取值的
+        file-extension: yaml
+
+
+  profiles:
+    active: test

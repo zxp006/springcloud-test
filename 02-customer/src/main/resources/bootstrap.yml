@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: customer-server
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        prefix: ${spring.application.name}
+        file-extension: yaml
+        group: customer-group
+        namespace: 83bd56cf-422b-49f6-a0f0-def3c323dbf4
+
+      discovery:
+        server-addr: localhost:8848
+
+server:
+  port: 8082
+
+user:
+  id: 100
+  user_name: hello
+  age: 20
+  city: beijing
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000  #熔断超时时间
+
+ribbon:
+  ReadTimeout: 60000 #请求处理的超时时间
+#  ConnectTimeout: 60000 #请求连接超时时间
+#  MaxAutoRetries: 0 #对当前实例的重试次数
+#  MaxAutoRetriesNextServer: 1 #切换实例的重试次数 1
+
+
+

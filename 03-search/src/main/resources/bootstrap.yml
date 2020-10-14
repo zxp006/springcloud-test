@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: search-server
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        group: search-prod
+        enabled: true #默认为true 使用nacos的配置中心配置覆盖本地配置
+  profiles:
+    active: prod
+server:
+  port: 8085
