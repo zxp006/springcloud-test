@@ -25,6 +25,8 @@ user:
   city: beijing
 
 
+
+
 hystrix:
   command:
     default:

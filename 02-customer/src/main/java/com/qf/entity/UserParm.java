@@ -10,6 +10,8 @@ public class UserParm {
     }
     private Integer uid;//主键
     private String username;//用户名
+    public  String address;
+
 
     public Integer getUid() {
         return uid;
@@ -22,8 +24,6 @@ public class UserParm {
     public String getUsername() {
         return username;
     }
-
-    public  String address;
 
     public String getAddress() {
         return address;
