@@ -18,7 +18,7 @@ public interface SearchClient {
     String search();
 
     @RequestMapping(value = "/search/{id}", method = RequestMethod.GET)
-    Customer findById(@PathVariable(value = "id") Integer id);
+    Customer findById_c(@PathVariable(value = "id") Integer id);
 
     @RequestMapping(value = "/getCustomer", method = RequestMethod.GET)
     Customer getCustomer(@RequestParam(value = "id") Integer id, @RequestParam(value = "name") String name);

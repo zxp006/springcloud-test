@@ -12,7 +12,7 @@ public class SearchClientFallBack implements SearchClient {
     }
 
     @Override
-    public Customer findById(Integer id) {
+    public Customer findById_c(Integer id) {
         return new Customer(1,"基本数据-容错数据",100);
     }
 

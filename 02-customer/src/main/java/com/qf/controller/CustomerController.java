@@ -65,7 +65,7 @@ public class CustomerController {
         String result = restTemplate.getForObject("http://SEARCH/search", String.class);*/
 
         /**
-         * 两边的参数可以用RequestBody,RequestParam,但是必须RequestBody对但是必须RequestBody,RequestParam对RequestParam,不可交叉。
+         * 两边的参数可以用RequestBody,RequestParam,但是必须RequestBody对equestBody,RequestParam对RequestParam,不可交叉。
            如果参数没有注明RequestBody或RequestParam,相当于RequestParam,包括直接传递对象
          */
         UserParm user=productClient.demo1(new UserParm(100,"张三"));
@@ -73,7 +73,7 @@ public class CustomerController {
          * demo2与demoNever调用的是同一个远程方法，说明返回值可以在调用处根据需要反序列化成自定义对象
          * 返回值与远程方法返回值不要求字段完全相同，两边可以部分相同，部分不同,部分相同的接受值,不同的为null；参数同理
          */
-        UserParm user2=productClient.demo2(1,"1333");
+        UserParm user2=productClient.demo2(2,"155");
         JSONObject object= productClient.demoNever(2,"2333");
         System.out.println("object:"+object);
         String result = searchClient.search()+" "+user+" "+user2;
@@ -100,7 +100,7 @@ public class CustomerController {
 //        if (id == 1) {
 //            int i = 1 / 0;
 //        }
-        Customer customer = searchClient.findById(id);
+        Customer customer = searchClient.findById_c(id);
         customer.setName(customer + version);
         return customer;
     }

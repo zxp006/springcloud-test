@@ -1,9 +1,14 @@
 package com.qf.entity;
 
+import lombok.Data;
+import lombok.experimental.Accessors;
+
 /**
  * @author zxp
  * @create 2020-09-10 12:50
  */
+@Data
+@Accessors(chain = true)
 public class UserParm {
     public UserParm(){
         super();
