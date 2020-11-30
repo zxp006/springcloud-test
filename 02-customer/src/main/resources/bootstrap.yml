@@ -9,11 +9,16 @@ spring:
         server-addr: 127.0.0.1:8848
         prefix: ${spring.application.name}
         file-extension: yaml
-        group: customer-group
-        namespace: 83bd56cf-422b-49f6-a0f0-def3c323dbf4
+        group: SEATA_GROUP
+        namespace: public
 
       discovery:
         server-addr: localhost:8848
+    alibaba:
+      seata:
+        tx-service-group: customer_tx_group
+
+
 
 server:
   port: 8082
@@ -24,6 +29,14 @@ user:
   age: 20
   city: beijing
 
+#指定服务的名称
+
+version:  v1
+
+#feign和hystrix组件整合
+feign:
+  hystrix:
+    enabled: true
 
 
 

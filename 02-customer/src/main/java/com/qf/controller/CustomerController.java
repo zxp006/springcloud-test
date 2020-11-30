@@ -8,6 +8,12 @@ import com.qf.client.SearchClient;
 import com.qf.entity.Customer;
 import com.qf.entity.User;
 import com.qf.entity.UserParm;
+
+
+import com.qf.repo.entity.ShAccount;
+import com.qf.repo.service.ShAccountService;
+import io.seata.spring.annotation.GlobalTransactional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +26,7 @@ import javax.annotation.Resource;
 
 @RestController
 //@RefreshScope
+@Slf4j
 public class CustomerController {
 
     @Autowired
@@ -40,6 +47,9 @@ public class CustomerController {
 
     @Value("${version}")
     private String version;
+
+    @Autowired
+    private ShAccountService shAccountService;
 
     @RequestMapping("/getversion")
     public String getVersion() {
@@ -93,7 +103,14 @@ public class CustomerController {
             @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50"),
             @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "5000")
     })
+    @GlobalTransactional
     public Customer findById(@PathVariable Integer id) throws InterruptedException {
+        ShAccount shAccount=new ShAccount();
+        shAccount.setId(1);
+        shAccount.setBalance(10000);
+        shAccountService.updateById(shAccount);
+        ShAccount account = shAccountService.getById(1);
+        log.info("accout={}",account);
         System.out.println(searchClient.search());
         System.out.println(Thread.currentThread().getName());
 //        TimeUnit.SECONDS.sleep(1);

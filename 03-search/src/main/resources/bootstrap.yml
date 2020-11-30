@@ -1,13 +1,19 @@
 spring:
   application:
-    name: search-server
+    name: SEARCH-API
   cloud:
     nacos:
       config:
         server-addr: 127.0.0.1:8848
         file-extension: yaml
-        group: search-prod
+        group: SEATA_GROUP
+        namespace: public
         enabled: true #默认为true 使用nacos的配置中心配置覆盖本地配置
+    alibaba:
+      seata:
+        tx-service-group: search_tx_group
+
+
   profiles:
     active: prod
 server:
