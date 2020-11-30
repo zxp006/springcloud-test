@@ -1,6 +1,7 @@
 package com.qf.controller;
 
 import com.alibaba.fastjson.JSONObject;
+
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.qf.client.ProductClient;
@@ -45,7 +46,7 @@ public class CustomerController {
     @Resource
     private ProductClient productClient;
 
-    @Value("${version}")
+    @Value("${version:1.0}")
     private String version;
 
     @Autowired

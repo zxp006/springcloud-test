@@ -1,13 +1,16 @@
 package com.qf;
 
 
+import com.alibaba.cloud.seata.feign.SeataFeignClientAutoConfiguration;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.optimize.JsqlParserCountOptimize;
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.RandomRule;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -24,6 +27,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableHystrixDashboard
 @ServletComponentScan({"com.qf.servlet"})
 @MapperScan("com.qf.repo.mapper")
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class,SeataFeignClientAutoConfiguration.class})
 public class CustomerApplication {
 
     public static void main(String[] args) {

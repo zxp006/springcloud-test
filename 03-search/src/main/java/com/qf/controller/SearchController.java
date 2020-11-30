@@ -33,7 +33,7 @@ public class SearchController {
     public Customer findById(@PathVariable Integer id) {
         ShBook shBook=new ShBook();
         shBook.setId(1);
-        shBook.setStock(1000);
+        shBook.setStock(10);
         shBookService.updateById(shBook);
         ShBook shBook2 = shBookService.getById(1);
         logger.info("book={}",shBook2);
